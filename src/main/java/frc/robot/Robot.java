@@ -111,7 +111,8 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() 
   {
-    mecanum.driveCartesian(-1.0*js.getY(), js.getX(), js.getZ());
+    mecanum.driveCartesian(-1.0*js.getY() * js.getRawAxis(3), js.getX() * js.getRawAxis(3), js.getZ() * js.getRawAxis(3));
+    System.out.println(js.getRawAxis(3));
   }
 
   /**
@@ -120,9 +121,9 @@ public class Robot extends TimedRobot {
   @Override
   public void testPeriodic() 
   {
-    fl.set(0.25);    //front left wheel CORRECT  
-    br.set(0.25);    //back left wheel INCORRECT
-    bl.set(0.25);    //front right wheel INCORRECT invert
-    fr.set(0.25);    //back right wheel INCORRECT   invert
+    fl.set(0.25);    //front left wheel CORRECT   //old comment, archived
+    br.set(0.25);    //back left wheel INCORRECT  //old comment, archived
+    bl.set(0.25);    //front right wheel INCORRECT invert   //old comment, archived
+    fr.set(0.25);    //back right wheel INCORRECT   invert  //old comment, archived
   }
 }
